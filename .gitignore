@@ -1,0 +1,11 @@
+# Modele faster-whisper (model.bin = 3 Go) : depasse la limite de taille
+# des fichiers sur GitHub. Il reste sur la cle USB ; sans ce dossier,
+# l'installeur telecharge le modele automatiquement.
+modeles/
+
+# Fichiers crees quand on lance l'application depuis ce dossier
+transcription.ini
+enregistrements/
+transcriptions/
+__pycache__/
+.venv/
