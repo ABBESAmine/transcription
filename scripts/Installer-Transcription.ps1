@@ -424,7 +424,10 @@ if (-not (Test-Path $py)) { Arreter "La creation de l'environnement Python a ech
 
 & $py -m pip install --upgrade pip --quiet
 Info "Installation de faster-whisper (quelques minutes)..."
-& $py -m pip install faster-whisper
+# av<19 : PyAV 19 a supprime le parametre metadata_errors que
+# faster-whisper 1.2.x passe a av.open(). Sans ce plafond, toute
+# transcription echoue avec "unexpected keyword argument 'metadata_errors'".
+& $py -m pip install faster-whisper "av<19"
 if ($LASTEXITCODE -ne 0) { Arreter "L'installation de faster-whisper a echoue. Verifie la connexion Internet." }
 Bien "faster-whisper installe"
 
